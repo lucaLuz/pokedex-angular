@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+      "target": "https://beta.pokeapi.co/graphql/v1beta",
+      "secure": false,
+      "logLevel": "debug"
+  }
+}

@@ -1,0 +1,223 @@
+@import '../../../config-scss/rem-calc.scss';
+
+:host {
+
+    .apresentacao {
+        background: #f0f2f2;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+    }
+
+    .decoracao {
+        width: 0%;
+
+        &--bolha1 {
+
+            &-at-item {
+
+                animation-name: slide-in-br;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-fill-mode: none;
+                top: 293px;
+                left: -2069px;
+                position: relative;
+                transform: rotate(140deg);
+            }
+
+            @keyframes slide-in-br {
+
+                0% {
+                    transform: translateY(1000px) translateX(1000px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0) translateX(0) rotate(140deg);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &--bolha2 {
+
+            &-at-item2 {
+
+                animation-name: slide-in-tl;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-fill-mode: none;
+                top: 13px;
+                right: 676px;
+                position: relative;
+                transform: rotate(116deg);
+            }
+
+            @keyframes slide-in-tl {
+
+                0% {
+                    transform: translateY(-1000px) translateX(-1000px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0) translateX(0) rotate(116deg);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .inicio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn_menu {
+        background-color: transparent;
+        display: flex;
+        margin: rem-calc(40);
+        cursor: pointer;
+    }
+
+    .h_inicio {
+        margin: 15% 0;
+    }
+
+    .centro {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .t_titulo {
+
+        font-family: 'Montserrat Alternates';
+        font-style: normal;
+        font-weight: bold;
+        margin: 0 4%;
+        margin-bottom: rem-calc(90);
+        font-size: rem-calc(64);
+        text-align: center;
+        color: var(--titulo-tela1);
+        -webkit-text-stroke: 2px var(--titulo-tela1);
+
+        animation-name: text-focus-in;
+        animation-duration: 4s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    @keyframes text-focus-in {
+
+        0% {
+            filter: blur(12px);
+            opacity: 0;
+        }
+
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    .btn_go {
+        font-family: 'Montserrat Alternates', sans-serif;
+        width: rem-calc(268);
+        height: rem-calc(56);
+        border: 4px solid var(--laranja);
+        border-radius: 15px;
+        color: var(--laranja);
+        background-color: transparent;
+        -webkit-text-stroke: 2px var(--laranja);
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem-calc(32);
+    }
+
+    a:hover {
+        background-color: var(--laranja);
+        color: #EFEFEF;
+        -webkit-text-stroke: 2px #EFEFEF;
+    }
+
+    @media only screen and (max-width: 769px) {
+        .t_titulo {
+            font-size: rem-calc(40);
+            margin-bottom: rem-calc(90);
+        }
+
+        .btn_go {
+            width: rem-calc(190);
+            font-size: rem-calc(24);
+        }
+
+        .decoracao {
+            &--bolha2 {
+                &-at-item2 {
+                    right: 570px;
+                }
+            }
+
+            &--bolha1 {
+
+                &-at-item {
+                    top: 330px;
+                    left: -1844px;
+
+                }
+
+            }
+
+        }
+    }
+
+    @media only screen and (max-width: 481px) {
+        .t_titulo {
+            font-size: 24px;
+            margin-bottom: 30px;
+            -webkit-text-stroke: 0px var(--titulo-tela1);
+        }
+        .btn_go{
+            width: 130px;
+            height: 40px;
+            font-size: 15px;
+            border: 2px solid var(--laranja);
+            -webkit-text-stroke: 1px var(--laranja);
+        }
+    }
+
+    @media only screen and (max-width: 320px) {
+        .t_titulo {
+            font-size: 24px;
+            margin-bottom: 30px;
+            -webkit-text-stroke: 0px var(--titulo-tela1);
+        }
+        .btn_go{
+            width: 130px;
+            height: 40px;
+            font-size: 15px;
+            border: 2px solid var(--laranja);
+            -webkit-text-stroke: 1px var(--laranja);
+        }
+    }
+
+
+}

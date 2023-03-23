@@ -1,0 +1,10 @@
+@import '../../../config-scss/rem-calc.scss';
+
+:host {
+    .home {
+        background: url(../../../assets/decoracoes/bolha.png) no-repeat center;
+        background-size: auto;
+        background-position: 50% -1174px;
+        
+    }
+}

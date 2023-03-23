@@ -1,0 +1,362 @@
+<section class="pesquisas">
+  <nav class="navbar navbar-light">
+    <div class="">
+      <div class="container-fluid">
+        <div class="column-6">
+          <div class="filter-text-search">
+            <form>
+              <input
+              autocomplete="off"
+                type="text"
+                name="input"
+                [(ngModel)]="searchString"
+                (keyup)="digit()"
+                placeholder="Search pokemon..."
+              />
+              <button (click)="search()"
+                ><img
+                  src="../../../assets/icons/searchnormal1.svg"
+                  alt="Buscar Pokemon"
+              /></button>
+            </form>
+            <div class="container-fluid2__conteiner-buttons">
+              <button
+                class="nav__trigger navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="nav__icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="p-4">
+      <section class="pokedex-filter">
+        <div class="pokedex-filter-header">
+          <div>
+            <div class="column-6 push-7">
+              <div class="content-block content-block-full"></div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pokedex-filter-wrapper overflow-visible open"
+          style="height: inherit"
+        >
+          <div class="pokedex-filter-wrapper__inner clear">
+            <div class="column-7 push-1">
+              <div class="content-block content-block-full">
+                <h2 class="section-title t-types no-padding">Types</h2>
+              </div>
+
+              <div class="content-block content-block-full">
+                <ul class="pokedex-filter-tw-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 7)"
+                      name="options"
+                      id="option1"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-bug btn-secondary pill" for="option1"
+                      >Bug</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 17)"
+                      name="options"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-dark btn-secondary pill" for="option2"
+                      >Dark</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 16)"
+                      name="options"
+                      id="option3"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-dragon btn-secondary pill background-color-dark"
+                      for="option3"
+                      >Dragon</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 13)"
+                      name="options"
+                      id="option4"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-eletric btn-secondary pill background-color-dark"
+                      for="option4"
+                      >Electric</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 18)"
+                      name="options"
+                      id="option5"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-fairy btn-secondary pill background-color-dark"
+                      for="option5"
+                      >Fairy</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 2)"
+                      name="options"
+                      id="option6"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-fight btn-secondary pill background-color-dark"
+                      for="option6"
+                      >Fighting</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 10)"
+                      name="options"
+                      id="option7"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-fire btn-secondary pill background-color-dark"
+                      for="option7"
+                      >Fire</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 3)"
+                      name="options"
+                      id="option8"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-fly btn-secondary pill background-color-dark"
+                      for="option8"
+                      >Flying</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 8)"
+                      name="options"
+                      id="option9"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-ghost btn-secondary pill background-color-dark"
+                      for="option9"
+                      >Ghost</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 12)"
+                      name="options"
+                      id="option10"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-grass btn-secondary pill background-color-dark"
+                      for="option10"
+                      >Grass</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 5)"
+                      name="options"
+                      id="option11"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-ground btn-secondary pill background-color-dark"
+                      for="option11"
+                      >Ground</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 15)"
+                      name="options"
+                      id="option12"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-ice btn-secondary pill background-color-dark"
+                      for="option12"
+                      >Ice</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 1)"
+                      name="options"
+                      id="option13"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-normal btn-secondary pill background-color-dark"
+                      for="option13"
+                      >Normal</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 4)"
+                      name="options"
+                      id="option14"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-poison btn-secondary pill background-color-dark"
+                      for="option14"
+                      >Poison</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 14)"
+                      name="options"
+                      id="option15"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-psy btn-secondary pill background-color-dark"
+                      for="option15"
+                      >Psychic</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 6)"
+                      name="options"
+                      id="option16"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-rock btn-secondary pill background-color-dark"
+                      for="option16"
+                      >Rock</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 9)"
+                      name="options"
+                      id="option17"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-steel btn-secondary pill background-color-water"
+                      for="option17"
+                      >Steel</label
+                    >
+                  </li>
+
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      (change)="changeCheckbox($event, 11)"
+                      name="options"
+                      id="option18"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-water btn-secondary pill background-color-water"
+                      for="option18"
+                      >Water</label
+                    >
+                  </li>
+                  <button
+                    class="btn btn-success"
+                    type="submit"
+                    (click)="search()"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent"
+                  >
+                  Apply
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

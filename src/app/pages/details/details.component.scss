@@ -1,0 +1,540 @@
+@import '../../../config-scss/rem-calc.scss';
+
+
+:host {
+	body {
+		background-color: var(--fundo-card);
+		border-radius: 0 100px 0 0;
+		width: auto;
+		height: auto;
+	}
+
+	.loading {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: var(--pesquisa);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&--itens {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			h1 {
+				color: var(--azul-claro)
+			}
+		}
+	}
+
+	.pokemon_status {
+
+		&--topo {
+			float: right;
+
+
+			h1,
+			p {
+				color: var(--menu-texto);
+				display: flex;
+				margin: 0 10% 0;
+
+			}
+
+		}
+
+		&--nomeid {
+			display: flex;
+			flex-direction: column;
+			top: 50px;
+			position: relative;
+			left: 86px;
+
+			&--ni {
+				left: 130px;
+				position: relative;
+				width: rem-calc(300);
+
+				&-name {
+					font-size: rem-calc(50);
+					color: var(--menu-texto);
+				}
+
+				&-id {
+					font-size: rem-calc(20);
+					color: var(--menu-texto);
+				}
+			}
+
+		}
+
+		&--allpokemon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&__imagem {
+
+				// margin: rem-calc(164) 0 0 rem-calc(200);
+				.arco {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					&--cp {
+						display: flex;
+						font-size: xx-large;
+						color: var(--menu-texto);
+					}
+				}
+
+				&--img {
+					max-width: rem-calc(200);
+					// //TESTANDO ADICIONAR PARA AUMENTAR TAMANHO DO POKEMON E POSIÇÃO DA SOMBRA
+					max-width: 19rem;
+					left: -34px;
+					top: -60px;
+					position: relative;
+					z-index: 10;
+
+					&--sombra {
+						left: 6px;
+						top: -107px;
+						position: relative;
+
+						background-color: #00000066;
+						border-radius: 100%;
+						height: rem-calc(24);
+						width: 70%;
+						filter: blur(13px);
+					}
+
+					&--genero {
+						display: flex;
+						justify-content: center;
+						right: 64px;
+						position: relative;
+						bottom: 75px;
+
+						img {
+							margin: rem-calc(10) rem-calc(30);
+						}
+					}
+				}
+
+				&--p {
+					margin-top: rem-calc(-320);
+					margin-left: rem-calc(136);
+				}
+			}
+
+			&__sobre {
+
+				width: rem-calc(444);
+				margin-left: rem-calc(30);
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				color: var(--menu-texto);
+
+				&-th {
+					h3 {
+						font-size: rem-calc(36);
+					}
+
+					ul {
+						display: flex;
+						align-items: center;
+						padding-left: 0;
+
+						li {
+							display: flex;
+							align-content: center;
+							flex-wrap: wrap;
+							margin: 0 rem-calc(10);
+						}
+					}
+
+					&_tipos {
+						&--lista {
+							display: flex;
+						}
+					}
+
+
+					&--tipo {
+						margin: rem-calc(40) 0;
+
+
+					}
+
+					&--habilidade {
+
+						h3 {
+							font-size: rem-calc(36);
+						}
+
+						ul {
+							margin: 2.5rem 0;
+						}
+
+						&-atac {
+							-webkit-text-stroke: 1px var(--menu-texto);
+							background-color: var(--laranja);
+							border: rem-calc(30) solid var(--laranja);
+							border-radius: rem-calc(99999);
+							border-top-width: rem-calc(10);
+							border-bottom-width: rem-calc(10);
+						}
+					}
+				}
+
+
+				&-descricao {
+					h3 {
+						font-size: rem-calc(36);
+						margin-bottom: rem-calc(20);
+					}
+
+					p {
+						color: var(--laranja);
+						font-size: rem-calc(32);
+					}
+				}
+			}
+
+		}
+
+	}
+
+	.nextprev {
+		display: flex;
+		position: absolute;
+		top: 400px;
+		width: 100%;
+		z-index: 1;
+		justify-content: space-between;
+
+		.next {
+			width: 100%;
+
+			button {
+				float: right;
+			}
+		}
+
+		.prev {
+			width: 100%;
+
+			button {
+				float: left;
+			}
+		}
+
+		img {
+			width: rem-calc(80);
+			opacity: 0.8;
+		}
+
+		button {
+			margin: 0 30px;
+			background: transparent;
+		}
+	}
+
+	.pulse:hover {
+		-webkit-animation-name: pulse;
+		animation-name: pulse;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	@-webkit-keyframes pulse {
+		0% {
+			-webkit-transform: scale3d(2, 2, 2);
+			transform: scale3d(1, 1, 1);
+		}
+
+		50% {
+			-webkit-transform: scale3d(1.05, 1.05, 1.05);
+			transform: scale3d(1.05, 1.05, 1.05);
+		}
+
+		100% {
+			-webkit-transform: scale3d(2, 2, 2);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			-webkit-transform: scale3d(2, 2, 2);
+			transform: scale3d(1, 1, 1);
+		}
+
+		50% {
+			-webkit-transform: scale3d(1.05, 1.05, 1.05);
+			transform: scale3d(1.05, 1.05, 1.05);
+		}
+
+		100% {
+			-webkit-transform: scale3d(2, 2, 2);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+
+	.btn-close--pokecard {
+		display: flex;
+		justify-content: flex-end;
+
+		img {
+			margin: rem-calc(80) rem-calc(80) rem-calc(20);
+			width: rem-calc(80);
+			height: rem-calc(80);
+		}
+	}
+
+
+	.pokemon_evolucao {
+		h3 {
+			font-size: rem-calc(64);
+			color: var(--menu-texto);
+			display: flex;
+			justify-content: center;
+			margin: rem-calc(80) 0;
+		}
+
+		ul {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			li {
+				margin: 0 rem-calc(100);
+
+
+				img {
+					max-width: rem-calc(160);
+					background-color: var(--evolucao-pokemon);
+					border-radius: 100%;
+				}
+
+
+			}
+
+		}
+
+		p {
+			color: var(--menu-texto);
+			font-size: rem-calc(32);
+		}
+
+	}
+
+}
+
+footer {
+	width: rem-calc(100);
+	height: rem-calc(100);
+}
+
+.bug {
+	-webkit-text-stroke: 1px var(--b-inseto);
+	background-color: var(--t-inseto);
+	border: 30px solid var(--t-inseto);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+
+
+}
+
+//dark
+
+.dark {
+	-webkit-text-stroke: 1px var(--t-dark);
+	background-color: var(--b-dark);
+	border: 30px solid var(--b-dark);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//dragon
+
+.dragon {
+	-webkit-text-stroke: 1px var(--t-dragon);
+	background-color: var(--b-dragon);
+	border: 30px solid var(--b-dragon);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//eletric
+
+.eletric {
+	-webkit-text-stroke: 1px var(--t-eletrico);
+	background-color: var(--b-eletric);
+	border: 30px solid var(--b-eletric);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//fairy
+
+.fairy {
+	-webkit-text-stroke: 1px var(--t-fairy);
+	background-color: var(--b-fairy);
+	border: 30px solid var(--b-fairy);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//fight
+
+.fight {
+	-webkit-text-stroke: 1px var(--t-fight);
+	background-color: var(--b-fight);
+	border: 30px solid var(--b-fight);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//fire
+
+.fire {
+	-webkit-text-stroke: 1px var(--t-fire);
+	background-color: var(--b-fire);
+	border: 30px solid var(--b-fire);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//fly
+
+.fly {
+	-webkit-text-stroke: 1px var(--t-fly);
+	background-color: var(--b-fly);
+	border: 30px solid var(--b-fly);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//ghost
+
+.ghost {
+	-webkit-text-stroke: 1px var(--t-ghost);
+	background-color: var(--b-ghost);
+	border: 30px solid var(--b-ghost);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//grass
+
+.grass {
+	-webkit-text-stroke: 1px var(--b-grass);
+	background-color: var(--t-grass);
+	border: 30px solid var(--t-grass);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//ground
+
+.ground {
+	-webkit-text-stroke: 1px var(--t-ground);
+	color: var(--t-ground);
+	background-color: var(--b-ground);
+	border: 30px solid var(--b-ground);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//ice
+
+.ice {
+	-webkit-text-stroke: 1px var(--t-ice);
+	background-color: var(--b-ice);
+	border: 30px solid var(--b-ice);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//normal
+
+.normal {
+	-webkit-text-stroke: 1px var(--t-normal);
+	background-color: var(--b-normal);
+	border: 30px solid var(--b-normal);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//poison
+
+.poison {
+	-webkit-text-stroke: 1px var(--t-poison);
+	background-color: var(--b-poison);
+	border: 30px solid var(--b-poison);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//psy
+
+.psy {
+	-webkit-text-stroke: 1px var(--t-psy);
+	background-color: var(--b-psy);
+	border: 30px solid var(--b-psy);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//rock
+
+.rock {
+	-webkit-text-stroke: 1px var(--t-rock);
+	background-color: var(--b-rock);
+	border: 30px solid var(--b-rock);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+//steel
+
+.steel {
+	-webkit-text-stroke: 1px var(--t-steel);
+	background-color: var(--b-steel);
+	border: 30px solid var(--b-steel);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}
+
+.water {
+	-webkit-text-stroke: 1px var(--t-water);
+	background-color: var(--water-l);
+	border: 30px solid var(--water-l);
+	border-radius: 99999px;
+	border-top-width: 10px;
+	border-bottom-width: 10px;
+}

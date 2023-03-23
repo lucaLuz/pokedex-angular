@@ -1,0 +1,148 @@
+@import '../../../config-scss/rem-calc.scss';
+
+:host {
+
+    .apresentacao {
+        background: #F6EDED;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+    }
+
+    .decoracao {
+        width: 0%;
+
+        &--bolha1 {
+
+            &-at-item {
+
+                animation-name: slide-in-br;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-fill-mode: none;
+                top: 513px;
+                left: -1805px;
+                position: relative;
+                transform: rotate(11deg);
+
+            }
+
+            @keyframes slide-in-br {
+
+                0% {
+                    transform: translateY(1000px) translateX(1000px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0) translateX(0) rotate(11deg);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &--bolha2 {
+
+            &-at-item2 {
+
+                animation-name: slide-in-tl;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-fill-mode: none;
+                top: -69px;
+                right: 491px;
+                position: relative;
+                width: rem-calc(1980);
+                transform: rotate(11deg);
+
+            }
+
+            @keyframes slide-in-tl {
+
+                0% {
+                    transform: translateY(-1000px) translateX(-1000px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0) translateX(0) rotate(11deg);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .inicio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn_menu {
+        background-color: transparent;
+        display: flex;
+        margin: rem-calc(40);
+        cursor: pointer;
+    }
+
+    .h_inicio {
+        top: rem-calc(20);
+        position: relative;
+    }
+
+    .centro {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .t_titulo {
+
+        animation-name: text-focus-in;
+        animation-duration: 4s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+        z-index: 1;
+        width: 600px;
+        position: relative;
+        
+    }
+
+    @keyframes text-focus-in {
+
+        0% {
+            filter: blur(12px);
+            opacity: 0;
+        }
+
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    .btn_go {
+        width: rem-calc(268);
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 241px;
+        bottom: 72px;
+        position: relative;
+    }
+
+}

@@ -1,0 +1,107 @@
+<div class="scroll" infiniteScroll (scrolled)="onScrollDown()">
+  <poke-search (emmitSearch)="getSearch($event)" (emmitFilter)="getFilter($event)"></poke-search>
+  <div class="inicio_lista">
+    <div class="inicio_lista-btnS">
+      <a [routerLink]="['/details/' + pokemonAleatorio]" class="btn-surpreenda" title="botao-surpreenda-me">
+        SURPRISE-ME!
+      </a>
+    </div>
+    <div class="loading" *ngIf="isLoading">
+      <div class="loading--itens">
+        <img src="../../../assets/img/giphy1.gif" />
+        <h1>LOADING...</h1>
+      </div>
+    </div>
+    <div class="error" *ngIf="nothing">
+      <div class="error_mensagem">
+        <div class="error_mensagem-itens">
+          <img src="../../../assets/img/spinda_by_theironforce_d2bpsuj-fullview.png" alt="">
+          <div class="balao-conversa">
+            <h1>
+              POKEMON NOT FOUND!
+            </h1>
+          </div>
+        </div>
+        <div class="error_list" *ngIf=" getMeanPokemons != 0">
+          <h2>did you mean ...</h2>
+          <div class="error_list-links">
+            <ng-template ngFor let-pokemon [ngForOf]="getMeanPokemons">
+              <a [routerLink]="['/details', pokemon?.id]" id="{{ pokemon.name }}" class="pokemon">
+                <h3>
+                  {{ pokemon.name }}
+                </h3>
+              </a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="listagem" *ngIf="!isLoading">
+      <div class="listagem-lista">
+        <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+          <a [routerLink]="['/details', pokemon?.id]" id="{{ pokemon.id }}" class="pokemon">
+            <div class="pokemon__status bounce">
+              <div class="pokemon-nomeid">
+                <h1 class="pokemon-nomeid__nome">
+                  {{ pokemon.name }}
+                </h1>
+                <p class="pokemon-nomeid__id">#{{ pokemon.id }}</p>
+              </div>
+
+              <div class="pokemon__tipos">
+                <div class="pokemon__tipo" *ngFor="let pokeType of pokemon.pokemon_v2_pokemontypes">
+                  <div [ngSwitch]="pokeType.pokemon_v2_type.name">
+                    <div class="pokemon__tipo--bug" *ngSwitchCase="'bug'"><img title="bug"
+                        src="../../../assets/type_icons/png/bug.svg"></div>
+                    <div class="pokemon__tipo--dark" *ngSwitchCase="'dark'"><img title="dark"
+                        src="../../../assets/type_icons/png/dark.svg"></div>
+                    <div class="pokemon__tipo--dragon" *ngSwitchCase="'dragon'"><img title="dragon"
+                        src="../../../assets/type_icons/png/dragon.svg"></div>
+                    <div class="pokemon__tipo--eletric" *ngSwitchCase="'electric'"><img title="electric"
+                        src="../../../assets/type_icons/png/electric.svg">
+                    </div>
+                    <div class="pokemon__tipo--fire" *ngSwitchCase="'fire'"><img title="fire"
+                        src="../../../assets/type_icons/png/fire.svg"></div>
+                    <div class="pokemon__tipo--fairy" *ngSwitchCase="'fairy'"><img title="fairy"
+                        src="../../../assets/type_icons/png/fairy.svg"></div>
+                    <div class="pokemon__tipo--fight" *ngSwitchCase="'fighting'"><img title="fighting"
+                        src="../../../assets/type_icons/png/fighting.svg">
+                    </div>
+                    <div class="pokemon__tipo--fly" *ngSwitchCase="'flying'"><img title="flying"
+                        src="../../../assets/type_icons/png/flying.svg"></div>
+                    <div class="pokemon__tipo--ghost" *ngSwitchCase="'ghost'"><img title="ghost"
+                        src="../../../assets/type_icons/png/ghost.svg"></div>
+                    <div class="pokemon__tipo--grass" *ngSwitchCase="'grass'"><img title="grass"
+                        src="../../../assets/type_icons/png/grass.svg"></div>
+                    <div class="pokemon__tipo--ground" *ngSwitchCase="'ground'"><img title="ground"
+                        src="../../../assets/type_icons/png/ground.svg"></div>
+                    <div class="pokemon__tipo--ice" *ngSwitchCase="'ice'"><img title="ice"
+                        src="../../../assets/type_icons/png/ice.svg"></div>
+                    <div class="pokemon__tipo--normal" *ngSwitchCase="'normal'"><img title="normal"
+                        src="../../../assets/type_icons/png/normal.svg"></div>
+                    <div class="pokemon__tipo--poison" *ngSwitchCase="'poison'"><img title="poison"
+                        src="../../../assets/type_icons/png/poison.svg"></div>
+                    <div class="pokemon__tipo--psy" *ngSwitchCase="'psychic'"><img title="psychic"
+                        src="../../../assets/type_icons/png/psychic.svg"></div>
+                    <div class="pokemon__tipo--rock" *ngSwitchCase="'rock'"><img title="rock"
+                        src="../../../assets/type_icons/png/rock.svg"></div>
+                    <div class="pokemon__tipo--steel" *ngSwitchCase="'steel'"><img title="steel"
+                        src="../../../assets/type_icons/png/steel.svg"></div>
+                    <div class="pokemon__tipo--water" *ngSwitchCase="'water'"><img title="water"
+                        src="../../../assets/type_icons/png/water.svg"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="pokemon__image">
+                <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' +
+                  pokemon.id +
+                  '.png'" alt="pokemon.name" style="z-index: 2" />
+              </div>
+            </div>
+          </a>
+        </ng-template>
+      </div>
+      <button *ngIf="showButton" (click)="onScrollTop()" class="btn-up">UP</button>
+    </section>
+  </div>
+</div>

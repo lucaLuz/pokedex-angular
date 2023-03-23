@@ -1,0 +1,30 @@
+
+
+:host {
+
+    svg {
+        bottom: 50px;
+        position: relative;
+    }
+    
+    path {
+        stroke-linecap: round;
+        stroke-width: 3;
+    }
+    
+    .grey {
+        stroke: #C8A196;
+    }
+    
+    .red {
+        stroke: var(--menu-texto);
+        stroke-dasharray: 250;
+        stroke-dashoffset: 250;
+        stroke-miterlimit: round;
+        transition: stroke-dashoffset 2000ms ease-in-out;
+        
+        &.red-02 {
+            stroke-dashoffset: 220;
+        }
+    }
+}

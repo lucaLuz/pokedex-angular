@@ -1,0 +1,117 @@
+<body>
+  <div class="pokemon_detalhes">
+    <div class="loading" *ngIf="isLoading">
+      <div class="loading--itens">
+        <img src="../../../assets/img/giphy1.gif" />
+        <h1>LOADING...</h1>
+      </div>
+    </div>
+    <div class="pokemon_status" *ngIf="!isLoading">
+      <div class="pokemon_status--topo">
+        <a [routerLink]="['/list']" class="btn-close--pokecard"><img src="../../../assets/icons/closecircle.svg" title="close"></a>
+      </div>
+      <div class="nextprev">
+        <div class="prev">
+          <button *ngIf="pokemon.id >= 2" id="prev" (click)="getPokePrev()"><img class="pulse" src="../../../assets/icons/previous.svg" title="previous"></button>
+      </div>
+      <div class="next">
+        <button *ngIf="pokemon.id <= 897" id="next" (click)="getPokeNext()"><img class="pulse" src="../../../assets/icons/next.svg" title="next"></button>
+      </div>
+      </div>
+      <div class="pokemon_status--nomeid">
+        <div class="pokemon_status--nomeid--ni">
+          <h1 class="pokemon_status--nomeid--ni-name">{{ pokemon.name }}</h1>
+          <p class="pokemon_status--nomeid--ni-id">#{{ pokemon.id }}</p>
+        </div>
+        <div class="pokemon_status--allpokemon">
+          <div class="pokemon_status--allpokemon__imagem">
+            <div class="arco">
+              <div class="arco--cp" title="">CP {{getCp()}}</div>
+              <app-poke-arco></app-poke-arco>
+            </div>
+            <div class="pokemon_status--allpokemon__imagem--p">
+              <img class="pokemon_status--allpokemon__imagem--img" [src]="
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' +
+            pokemon.id +
+            '.png'
+          " alt="pokemon.name" />
+              <div class="pokemon_status--allpokemon__imagem--img--sombra"></div>
+              <div class="pokemon_status--allpokemon__imagem--img--genero" [ngSwitch]="getGender()">
+                <div *ngSwitchCase="'Unknown'"><img title="undefined" src="../../../assets/icons/undefined.svg"></div>
+                <div *ngSwitchCase="'Male ♂ / Female ♀'"><img title="female" src="../../../assets/icons/fame .svg"><img
+                    title="male" src="../../../assets/icons/male.svg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pokemon_status--allpokemon__sobre">
+            <div class="pokemon_status--allpokemon__sobre-descricao">
+              <h3>About this pokemon:</h3>
+              Version:
+              {{ pokemonDesc.pokemon_v2_pokemonspeciesflavortexts[0].pokemon_v2_version.name }}
+              <p>
+                "{{ pokemonDesc.pokemon_v2_pokemonspeciesflavortexts[0].flavor_text.replaceAll("\f"," ")}}"
+              </p>
+            </div>
+            <div class="pokemon_status--allpokemon__sobre-th">
+              <div class="pokemon_status--allpokemon__sobre-th_tipos">
+                <h3>Type:</h3>
+                <div class="pokemon_status--allpokemon__sobre-th_tipos--lista">
+                  <ul *ngFor="let pokeType of pokemon.pokemon_v2_pokemontypes"
+                    class="pokemon_status--allpokemon__sobre-th--tipo">
+                    <div [ngSwitch]="pokeType.pokemon_v2_type.name">
+                      <li class="bug" title="bug" *ngSwitchCase="'bug'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="dark" title="dark" *ngSwitchCase="'dark'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="dragon" title="dragon" *ngSwitchCase="'dragon'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="eletric" title="electric" *ngSwitchCase="'electric'">{{ pokeType.pokemon_v2_type.name }}
+                      </li>
+                      <li class="fire" title="fire" *ngSwitchCase="'fire'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="fairy" title="fairy" *ngSwitchCase="'fairy'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="fight" title="fight" *ngSwitchCase="'fighting'">{{ pokeType.pokemon_v2_type.name }}
+                      </li>
+                      <li class="fly" title="flay" *ngSwitchCase="'flying'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="ghost" title="ghost" *ngSwitchCase="'ghost'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="grass" title="grass" *ngSwitchCase="'grass'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="ground" title="ground" *ngSwitchCase="'ground'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="ice" title="ice" *ngSwitchCase="'ice'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="normal" title="normal" *ngSwitchCase="'normal'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="poison" title="poison" *ngSwitchCase="'poison'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="psy" title="psychic" *ngSwitchCase="'psychic'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="rock" title="rock" *ngSwitchCase="'rock'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="steel" title="steel" *ngSwitchCase="'steel'">{{ pokeType.pokemon_v2_type.name }}</li>
+                      <li class="water" title="water" *ngSwitchCase="'water'">{{ pokeType.pokemon_v2_type.name }}</li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+              <div class="pokemon_status--allpokemon__sobre-th--habilidade">
+                <h3>Ability:</h3>
+                <ul>
+                  <li class="pokemon_status--allpokemon__sobre-th--habilidade-atac"
+                    *ngFor="let pokeAbility of pokemon.pokemon_v2_pokemonabilities">
+                    {{ pokeAbility.pokemon_v2_ability.name }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pokemon_evolucao">
+        <h3>Evolutions:</h3>
+        <ul *ngFor="let pokeEvolution of pokemonEvo">
+          <li *ngFor="let evoList of pokeEvolution.pokemon_v2_pokemonspecies">
+            <a href="/details/{{ evoList.id }}">
+              <img [src]="
+                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' +
+                  evoList.id +
+                  '.png'
+                " alt="evoList.name" class="pokemon_evolucao--imagem" style="position: initial" />
+            </a>
+            <p>{{ evoList.name }} #{{ evoList.id }}</p>
+          </li>
+        </ul>
+      </div>
+      <footer></footer>
+    </div>
+  </div>
+</body>

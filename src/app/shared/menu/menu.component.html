@@ -1,0 +1,36 @@
+<nav class="navbar fixedtop">
+  <div class="container-fluid">
+    <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions">
+      <img src="../../../assets/icons/menu.svg" alt="">
+    </button>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+          <img src="../../../assets/icons/closecircle.svg" alt="close">
+        </button>
+      </div>
+      <div class="menu">
+        <input type="radio" id="radio-0" class="radio" name="menu" checked />
+        <label class="menu_links" for="radio-0">
+          <a id="menu_links--item-link" aria-current="page" [routerLink]="['']" data-bs-dismiss="offcanvas"><img
+              src="../../../assets/icons/home.svg" alt=""> Home</a>
+        </label>
+        <input type="radio" id="radio-1" class="radio" name="menu" />
+        <label class="menu_links" for="radio-1">
+            <a id="menu_links--item-link" [routerLink]="['/list']" data-bs-dismiss="offcanvas"><img src="../../../assets/icons/pokemon.svg" alt="">
+              Pokemons</a>
+        </label>
+        <input type="radio" id="radio-2" class="radio" name="menu" />
+        <label class="menu_links" for="radio-2">
+            <a id="menu_links--item-link" [routerLink]="['/criadores']" data-bs-dismiss="offcanvas"><img src="../../../assets/icons/criadores.svg" alt="">
+              Creators</a>
+        </label>
+        <div class="blob-container">
+          <div class="blob"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

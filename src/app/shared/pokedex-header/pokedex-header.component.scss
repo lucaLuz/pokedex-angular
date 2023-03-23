@@ -1,0 +1,13 @@
+@import '../../../config-scss/rem-calc.scss';
+
+
+:host {
+
+    header {
+        display: flex;
+        justify-content: center;
+    }
+    .logo{
+        margin: rem-calc(40);
+    }
+}
